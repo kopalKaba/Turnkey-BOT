@@ -163,7 +163,7 @@ class Turnkey:
             return token_balance
         except Exception as e:
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Message :{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Message :{Style.RESET_ALL}"
                 f"{Fore.RED+Style.BRIGHT} {str(e)} {Style.RESET_ALL}"
             )
             return None
@@ -195,7 +195,7 @@ class Turnkey:
             return tx_hash, block_number
         except Exception as e:
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Message :{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Message :{Style.RESET_ALL}"
                 f"{Fore.RED+Style.BRIGHT} {str(e)} {Style.RESET_ALL}"
             )
             return None, None
@@ -297,33 +297,35 @@ class Turnkey:
         if tx_hash and block_number:
             explorer = f"https://sepolia.etherscan.io/tx/{tx_hash}"
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Status  :{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Status  :{Style.RESET_ALL}"
                 f"{Fore.GREEN+Style.BRIGHT} Success {Style.RESET_ALL}"
             )
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Block   :{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Block   :{Style.RESET_ALL}"
                 f"{Fore.WHITE+Style.BRIGHT} {block_number} {Style.RESET_ALL}"
             )
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Tx Hash :{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Tx Hash :{Style.RESET_ALL}"
                 f"{Fore.WHITE+Style.BRIGHT} {tx_hash} {Style.RESET_ALL}"
             )
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Explorer:{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Explorer:{Style.RESET_ALL}"
                 f"{Fore.WHITE+Style.BRIGHT} {explorer} {Style.RESET_ALL}"
             )
         else:
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Status  :{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Status  :{Style.RESET_ALL}"
                 f"{Fore.RED+Style.BRIGHT} Perform On-Chain Failed {Style.RESET_ALL}"
             )
 
     async def process_accounts(self, account: str, address: str, use_proxy: bool):
         for i in range(self.tx_count):
             self.log(
-                f"{Fore.MAGENTA+Style.BRIGHT}   ● {Style.RESET_ALL}"
+                f"{Fore.MAGENTA+Style.BRIGHT} ● {Style.RESET_ALL}"
                 f"{Fore.GREEN+Style.BRIGHT}Transfer{Style.RESET_ALL}"
-                f"{Fore.WHITE+Style.BRIGHT} {i+1} / {self.tx_count} {Style.RESET_ALL}                           "
+                f"{Fore.WHITE+Style.BRIGHT} {i+1} {Style.RESET_ALL}"
+                f"{Fore.MAGENTA+Style.BRIGHT}Of{Style.RESET_ALL}"
+                f"{Fore.WHITE+Style.BRIGHT} {self.tx_count} {Style.RESET_ALL}                                   "
             )
 
             balance = await self.get_token_balance(address, use_proxy)
@@ -333,21 +335,21 @@ class Turnkey:
             receiver = self.generate_random_receiver()
 
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Balance :{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Balance :{Style.RESET_ALL}"
                 f"{Fore.WHITE+Style.BRIGHT} {balance} ETH Sepolia {Style.RESET_ALL}"
             )
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Amount  :{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Amount  :{Style.RESET_ALL}"
                 f"{Fore.WHITE+Style.BRIGHT} {tx_amount} ETH Sepolia {Style.RESET_ALL}"
             )
             self.log(
-                f"{Fore.CYAN+Style.BRIGHT}     Receiver:{Style.RESET_ALL}"
+                f"{Fore.CYAN+Style.BRIGHT}   Receiver:{Style.RESET_ALL}"
                 f"{Fore.WHITE+Style.BRIGHT} {receiver} {Style.RESET_ALL}"
             )
 
             if not balance or balance <= tx_amount:
                 self.log(
-                    f"{Fore.CYAN+Style.BRIGHT}     Status  :{Style.RESET_ALL}"
+                    f"{Fore.CYAN+Style.BRIGHT}   Status  :{Style.RESET_ALL}"
                     f"{Fore.YELLOW+Style.BRIGHT} Insufficient ETH Sepolia Token Balance {Style.RESET_ALL}"
                 )
                 return
