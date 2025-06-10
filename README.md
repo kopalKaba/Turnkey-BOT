@@ -1,7 +1,7 @@
 # Turnkey BOT
 Turnkey BOT
 
-- Register Here : [Turnkey](https://app.open-fi.xyz/)
+- Register Here : [Turnkey](https://wallet.tx.xyz/)
 - Signup With Google
 - Export Seed Phrase & Private Key
 - Save
