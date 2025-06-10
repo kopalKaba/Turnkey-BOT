@@ -320,6 +320,12 @@ class Turnkey:
 
     async def process_accounts(self, account: str, address: str, use_proxy: bool):
         for i in range(self.tx_count):
+            self.log(
+                f"{Fore.MAGENTA+Style.BRIGHT}   ● {Style.RESET_ALL}"
+                f"{Fore.GREEN+Style.BRIGHT}Transfer{Style.RESET_ALL}"
+                f"{Fore.WHITE+Style.BRIGHT} {i+1} / {self.tx_count} {Style.RESET_ALL}                           "
+            )
+
             balance = await self.get_token_balance(address, use_proxy)
 
             tx_amount = round(random.uniform(self.min_amount, self.max_amount), 7)
