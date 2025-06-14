@@ -24,7 +24,7 @@ Turnkey BOT
 
 1. **Clone The Repositories:**
    ```bash
-   git clone https://github.com/vonssy/Turnkey-BOT.git
+   git clone https://github.com/kopalKaba/Turnkey-BOT.git
    ```
    ```bash
    cd Turnkey-BOT
